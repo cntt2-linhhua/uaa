@@ -24,7 +24,7 @@ public class LiquibaseConfiguration {
     public SpringLiquibase liquibase(DataSource dataSource) {
         SpringLiquibase liquibase = new SpringLiquibase();
         liquibase.setDataSource(dataSource);
-        liquibase.setChangeLog("classpath:config.liquibase/master.xml");
+        liquibase.setChangeLog("classpath:config/liquibase/master.xml");
 
         if (this.env.acceptsProfiles("no-liquibase")) {
             liquibase.setShouldRun(false);
