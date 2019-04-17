@@ -8,8 +8,6 @@ public interface RoleService {
 
     List<RoleModel> findAll();
 
-    List<RoleModel> search(String term);
-
     RoleModel findById(Long id);
 
     boolean update(RoleModel roleModel);

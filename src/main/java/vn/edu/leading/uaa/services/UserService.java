@@ -8,7 +8,6 @@ public interface UserService {
 
     List<UserModel> findAll();
 
-    List<UserModel> search(String term);
 
     UserModel findById(Long id);
 
@@ -18,5 +17,5 @@ public interface UserService {
 
     boolean delete(Long id);
 
-    void register(UserModel userModel) throws Exception;
+    //void register(UserModel userModel) throws Exception;
 }

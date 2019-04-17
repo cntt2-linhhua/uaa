@@ -20,10 +20,6 @@ public class RoleServicelmpl implements RoleService {
         return roleRepository.findAll();
     }
 
-    @Override
-    public List<RoleModel> search(String term) {
-        return roleRepository.findByNameContaining(term);
-    }
 
     @Override
     public RoleModel findById(Long id) {

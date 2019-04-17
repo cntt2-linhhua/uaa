@@ -1,6 +1,5 @@
 package vn.edu.leading.uaa.services;
 
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import vn.edu.leading.uaa.models.RoleModel;
@@ -27,12 +26,6 @@ public class UserServicelmpl implements UserService {
     @Override
     public List<UserModel> findAll() {
         return userRepository.findAll();
-    }
-
-    @Override
-    public List<UserModel> search(String term) {
-        return userRepository.findAllByUsernameContaining
-                (term);
     }
 
     @Override
@@ -63,24 +56,24 @@ public class UserServicelmpl implements UserService {
         return true;
     }
 
-    @Override
-    @Transactional
-    public void register(UserModel userModel) throws Exception {
-        if (userRepository.findByUsername(userModel.getUsername()).isPresent()){
-
-            throw new Exception("user_exits");
-        }
-
-//        if (userRepository.findByEmail (userModel.getMail()).isPresent())
-//        {
+//    @Override
+//    @Transactional
+//    public void register(UserModel userModel) throws Exception {
+//        if (userRepository.findByUsername(userModel.getUsername()).isPresent()){
+//
 //            throw new Exception("user_exits");
 //        }
-
-        RoleModel roleModel = roleRepository.findByName("ROLE_USER");
-        Set<RoleModel> roleModels = new HashSet<>();
-        roleModels.add(roleModel);
-        userModel.setRoleModels(roleModels);
-        //userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
-        userRepository.save(userModel);
-    }
+//
+////        if (userRepository.findByEmail (userModel.getMail()).isPresent())
+////        {
+////            throw new Exception("user_exits");
+////        }
+//
+//        RoleModel roleModel = roleRepository.findByName("ROLE_USER");
+//        Set<RoleModel> roleModels = new HashSet<>();
+//        roleModels.add(roleModel);
+//        userModel.setRoleModels(roleModels);
+//        //userModel.setPassword(passwordEncoder.encode(userModel.getPassword()));
+//        userRepository.save(userModel);
+//    }
 }
