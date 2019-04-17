@@ -28,6 +28,9 @@ public class UserModel {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false, unique = true)
+    private String name;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "uaa_user_role",
